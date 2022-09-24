@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AppleMusicAppDemo</string>
+    <string name="top_songs">Top songs</string>
+    <string name="str_sample_title_long">This is where song name will be shown. This is just to show it in two lines to make it look bigger and longer.</string>
+    <string name="check_your_internet">Check your internet!</string>
+    <string name="post_home_title">Post List</string>
+</resources>

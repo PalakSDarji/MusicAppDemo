@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.palak.applemusicappdemo.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_songDetailFragment"
+            app:destination="@id/songDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_postHomeFragment"
+            app:destination="@id/postHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/songDetailFragment"
+        android:name="com.palak.applemusicappdemo.details.SongDetailFragment"
+        android:label="SongDetailFragment" />
+    <fragment
+        android:id="@+id/postHomeFragment"
+        android:name="com.palak.applemusicappdemo.post.home.PostHomeFragment"
+        android:label="PostHomeFragment" />
+
+</navigation>
