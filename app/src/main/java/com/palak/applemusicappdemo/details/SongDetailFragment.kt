@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.palak.applemusicappdemo.MainActivity
 import com.palak.applemusicappdemo.R
 import com.palak.applemusicappdemo.databinding.FragmentSongDetailBinding
+import com.palak.applemusicappdemo.di.GlideApp
 import com.palak.applemusicappdemo.models.SongEntry
 import com.palak.applemusicappdemo.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
@@ -85,7 +86,7 @@ class SongDetailFragment : Fragment() {
     }
 
     private suspend fun loadImage(url: String) {
-        val bitmap = Glide.with(requireContext())
+        val bitmap = GlideApp.with(requireContext())
             .asBitmap()
             .load(url)
             .submit()

@@ -93,10 +93,19 @@ class HomeFragment : Fragment() {
         }
 
         homeViewModel.postingLiveData.observe(viewLifecycleOwner){
-            println("received 1 on screen : $it")
+            println("received 1 on screen")
         }
 
-        homeViewModel.getPosts()
+        homeViewModel.post1LiveData.observe(viewLifecycleOwner){
+            println("received 2 on screen")
+        }
+
+        homeViewModel.postUnitedLiveData.observe(viewLifecycleOwner){
+            binding.hasPosts = it.postingResponse.size > 0
+            println("received United on screen, hasPosts ?: ${binding.hasPosts}")
+        }
+
+        homeViewModel.getPostsAsync()
 
         if(Utils.isOnline(requireContext())){
             homeViewModel.fetchTopSongs()
@@ -110,7 +119,8 @@ class HomeFragment : Fragment() {
 
     private fun setClickListener() {
         binding.btnPosts.setOnClickListener {
-            navController.navigate(R.id.action_homeFragment_to_postHomeFragment)
+            val bundle = bundleOf("posts" to homeViewModel.postUnitedLiveData.value?.postingResponse)
+            navController.navigate(R.id.action_homeFragment_to_postHomeFragment,bundle)
         }
     }
 

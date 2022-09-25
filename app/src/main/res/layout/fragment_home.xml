@@ -11,6 +11,9 @@
         <variable
             name="hasData"
             type="Boolean"/>
+        <variable
+            name="hasPosts"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,6 +41,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_width="wrap_content"
+            isGone="@{!hasPosts}"
             android:layout_height="wrap_content" />
 
         <androidx.recyclerview.widget.RecyclerView

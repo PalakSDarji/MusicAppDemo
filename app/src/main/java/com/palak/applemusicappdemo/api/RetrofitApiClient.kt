@@ -18,7 +18,7 @@ class RetrofitApiClient {
     fun retrofitAppleMusicService(): ApiInterface {
 
         val interceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BASIC
+            level = HttpLoggingInterceptor.Level.HEADERS
         }
         val client : OkHttpClient = OkHttpClient.Builder()
             .hostnameVerifier { _, _ -> true }
@@ -44,7 +44,7 @@ class RetrofitApiClient {
             .build()
 
         return Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(Constants.POSTING_BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
